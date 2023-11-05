@@ -14,3 +14,24 @@ test('Click on element', async ({ page })  => {
         const errorMessage = await page.locator('.alert-error')
         await expect(errorMessage).toContainText('Login and/or password are wrong.')
 })
+
+/*
+test('Selectors', async ({ page }) => {
+    // text
+    await page.click('text=some text')
+
+    // CSS selectors
+    await page.click('h1')
+    await page.click('#id')
+    await page.click('.class')
+    
+    // Only visible CSS selector
+    await page.click('.submit-button:visible')
+    
+    // Combinations
+    await page.click('h2 .first')
+
+    // XPath
+    await page.click('//button')
+})
+*/
