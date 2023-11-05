@@ -15,8 +15,7 @@ test('Click on Element', async ({ page })  => {
     await expect(errorMessage).toContainText('Login and/or password are wrong.')
 })
 
-/*
-test('Selectors', async ({ page }) => {
+test.skip('Selectors', async ({ page }) => {
     // text
     await page.click('text=some text')
 
@@ -34,31 +33,32 @@ test('Selectors', async ({ page }) => {
     // XPath
     await page.click('//button')
 })
-*/
 
-test('Working with Inputs', async ({ page }) => {
-    await page.goto('http://zero.webappsecurity.com/index.html')
-    await page.click('#signin_button')
+test.describe.only('My first test suite', () => {
+    test('Working with Inputs', async ({ page }) => {
+        await page.goto('http://zero.webappsecurity.com/index.html')
+        await page.click('#signin_button')
+        
+        await page.fill('#user_login', 'incorrect username')
+        await page.fill('#user_password', 'some password')
+        await page.click('text=Sign in')
     
-    await page.fill('#user_login', 'incorrect username')
-    await page.fill('#user_password', 'some password')
-    await page.click('text=Sign in')
-
-    const errorMessage = await page.locator('.alert-error')
-    await expect(errorMessage).toContainText('Login and/or password are wrong.')    
-})
-
-test('Assertions', async ({ page}) => {
-    await page.goto('https://example.com')
-
-    await expect(page).toHaveURL('https://example.com')
-    await expect(page).toHaveTitle('Example Domain')
-
-    const element = await page.locator('h1')
-    await expect(element).toBeVisible
-    await expect(element).toHaveText('Example Domain')
-    await expect(element).toHaveCount(1)
-
-    const nonExistingElement = await page.locator('h5')
-    await expect(nonExistingElement).not.toBeVisible
+        const errorMessage = await page.locator('.alert-error')
+        await expect(errorMessage).toContainText('Login and/or password are wrong.')    
+    })
+    
+    test('Assertions', async ({ page}) => {
+        await page.goto('https://example.com')
+    
+        await expect(page).toHaveURL('https://example.com')
+        await expect(page).toHaveTitle('Example Domain')
+    
+        const element = await page.locator('h1')
+        await expect(element).toBeVisible
+        await expect(element).toHaveText('Example Domain')
+        await expect(element).toHaveCount(1)
+    
+        const nonExistingElement = await page.locator('h5')
+        await expect(nonExistingElement).not.toBeVisible
+    })
 })
