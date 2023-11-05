@@ -6,7 +6,7 @@ test('Simple basic test', async ({ page }) => {
     await expect(pageTitle).toContainText('Example Domain')
 })
 
-test('Click on Element', async ({ page })  => {
+test('Click on Element @myTag', async ({ page })  => {
     await page.goto('http://zero.webappsecurity.com/index.html')
     await page.click('#signin_button')
     await page.click('text=Sign in')
@@ -34,8 +34,8 @@ test.skip('Selectors', async ({ page }) => {
     await page.click('//button')
 })
 
-test.describe.only('My first test suite', () => {
-    test('Working with Inputs', async ({ page }) => {
+test.describe('My first test suite', () => {
+    test('Working with Inputs @myTag', async ({ page }) => {
         await page.goto('http://zero.webappsecurity.com/index.html')
         await page.click('#signin_button')
         
