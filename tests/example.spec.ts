@@ -6,7 +6,7 @@ test('Simple basic test', async ({ page }) => {
         await expect(pageTitle).toContainText('Example Domain')
 })
 
-test('Click on element', async ({ page })  => {
+test('Click on Element', async ({ page })  => {
     await page.goto('http://zero.webappsecurity.com/index.html')
         await page.click('#signin_button')
         await page.click('text=Sign in')
@@ -35,3 +35,14 @@ test('Selectors', async ({ page }) => {
     await page.click('//button')
 })
 */
+
+test('Working with Inputs', async ({ page }) => {
+    await page.goto('http://zero.webappsecurity.com/index.html')
+        await page.click('#signin_button')
+        await page.fill('#user_login', 'incorrect username')
+        await page.fill('#user_password', 'some password')
+        await page.click('text=Sign in')
+
+        const errorMessage = await page.locator('.alert-error')
+        await expect(errorMessage).toContainText('Login and/or password are wrong.')    
+})
