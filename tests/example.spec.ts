@@ -63,13 +63,19 @@ test.describe('My first test suite', () => {
     })
 })
 
-test.only('Full page Screenshot', async ({ page }) => {
-    await page.goto('https://example.com/')    
-    await page.screenshot({ path: 'screenshot.png', fullPage: true })    
-})
+test.describe.only('Hooks', () => {
+    test.beforeEach(async ({ page }) => {
+        await page.goto('https://example.com/')          
+    })
 
-test.only('Single element Screenshot', async ({ page }) => {
-    await page.goto('https://example.com/')
-    const element = await page.$('h1')
-    await element.screenshot({ path: 'single-element-screenshot.png' })    
+    test('Full page Screenshot', async ({ page }) => {
+       // await page.goto('https://example.com/')    
+        await page.screenshot({ path: 'screenshot.png', fullPage: true })    
+    })
+    
+    test('Single element Screenshot', async ({ page }) => {
+      //  await page.goto('https://example.com/')
+        const element = await page.$('h1')
+        await element.screenshot({ path: 'single-element-screenshot.png' })    
+    })    
 })
