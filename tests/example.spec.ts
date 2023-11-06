@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test.only('Simple basic test', async ({ page }) => {
+test('Simple basic test', async ({ page }) => {
     await page.goto('https://example.com')
     const pageTitle = await page.locator('h1')
     await expect(pageTitle).toContainText('Example Domain')
@@ -61,4 +61,15 @@ test.describe('My first test suite', () => {
         const nonExistingElement = await page.locator('h5')
         await expect(nonExistingElement).not.toBeVisible
     })
+})
+
+test.only('Full page Screenshot', async ({ page }) => {
+    await page.goto('https://example.com/')    
+    await page.screenshot({ path: 'screenshot.png', fullPage: true })    
+})
+
+test.only('Single element Screenshot', async ({ page }) => {
+    await page.goto('https://example.com/')
+    const element = await page.$('h1')
+    await element.screenshot({ path: 'single-element-screenshot.png' })    
 })
