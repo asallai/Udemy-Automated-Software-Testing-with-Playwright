@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test'
 
+import { loadHomePage, assertTitle } from '../helpers'
+
 test('Simple basic test', async ({ page }) => {
     await page.goto('https://example.com')
     const pageTitle = await page.locator('h1')
@@ -63,7 +65,7 @@ test.describe('My first test suite', () => {
     })
 })
 
-test.describe.only('Hooks', () => {
+test.describe('Hooks', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('https://example.com/')          
     })
@@ -75,7 +77,12 @@ test.describe.only('Hooks', () => {
     
     test('Single element Screenshot', async ({ page }) => {
       //  await page.goto('https://example.com/')
-        const element = await page.$('h1')
+        const element = await page.locator('h1')
         await element.screenshot({ path: 'single-element-screenshot.png' })    
     })    
+})
+
+test.only('Custom Helpers', async ({ page }) => {
+    await loadHomePage(page)
+    await assertTitle(page)    
 })
