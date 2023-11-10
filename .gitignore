@@ -463,3 +463,5 @@ node_modules/prettier/plugins/yaml.d.ts
 node_modules/prettier/plugins/yaml.js
 node_modules/prettier/plugins/yaml.mjs
 playwright-report/index.html
+test-results/tests-example-Custom-Helpers-Webkit/test-failed-1.png
+test-results/tests-example-Custom-Helpers-Webkit/video.webm
