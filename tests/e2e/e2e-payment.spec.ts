@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test"
 
 test.describe("New Payment", () => {
+
     test.beforeEach(async ({ page }) => {
         await page.goto("http://zero.webappsecurity.com/index.html")
         await page.click("#signin_button")
@@ -8,6 +9,7 @@ test.describe("New Payment", () => {
         await page.fill("#user_password", "password")
         await page.click("text=Sign in")
     })
+    
     test("Should send new payment", async ({ page }) => {
         await page.goto('http://zero.webappsecurity.com/bank/pay-bills.html')
         await page.click("#pay_bills_tab")

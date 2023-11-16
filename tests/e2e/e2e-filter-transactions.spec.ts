@@ -1,6 +1,7 @@
 import { test, expect} from "@playwright/test"
 
 test.describe("Filter Transactions", () => {
+
     test.beforeEach(async ({ page }) => {
         await page.goto("http://zero.webappsecurity.com/index.html")
         await page.click("#signin_button")
@@ -8,6 +9,7 @@ test.describe("Filter Transactions", () => {
         await page.fill("#user_password", "password")
         await page.click("text=Sign in")
     })
+    
     test("Verify the results for each account", async ({ page }) => {
         await page.goto('http://zero.webappsecurity.com/bank/account-activity.html')
         await page.click("#account_activity_tab")        

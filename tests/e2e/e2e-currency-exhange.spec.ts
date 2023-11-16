@@ -1,6 +1,7 @@
 import {test, expect} from "@playwright/test"
 
-test.describe.only('Currency Exchange Form', () => {    
+test.describe.only('Currency Exchange Form', () => {
+    
     test.beforeEach(async ({ page }) => {
         await page.goto('http://zero.webappsecurity.com/index.html')
         await page.click('#signin_button')
@@ -8,6 +9,7 @@ test.describe.only('Currency Exchange Form', () => {
         await page.fill('#user_password', 'password')
         await page.click('text=Sign in')
     })
+
     test('Should make currency exchange', async ({ page }) => {
         await page.goto('http://zero.webappsecurity.com/bank/pay-bills.html')
         await page.click('#pay_bills_tab')
