@@ -16,8 +16,8 @@ test.describe("Feedback Form", () => {
 
         const nameInput = await page.locator("#name")
         const commentInput = await page.locator("#comment")
-        await expect(nameInput).toBeEmpty
-        await expect(commentInput).toBeEmpty        
+        await expect(nameInput).toBeEmpty()
+        await expect(commentInput).toBeEmpty()        
     })
 
     // Submit feedback form

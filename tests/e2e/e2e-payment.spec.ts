@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test"
 
-test.describe.only("New Payment", () => {
+test.describe("New Payment", () => {
     test.beforeEach(async ({ page }) => {
         await page.goto("http://zero.webappsecurity.com/index.html")
         await page.click("#signin_button")
@@ -21,7 +21,7 @@ test.describe.only("New Payment", () => {
         await page.click('#pay_saved_payees')
 
         const message = await page.locator('#alert_content > span')
-        await expect(message).toBeVisible
+        await expect(message).toBeVisible()
         await expect(message).toContainText('The payment was successfully submitted.')        
     })    
 })

@@ -15,7 +15,7 @@ test.describe("Login / Logout Flow", () => {
         await page.click("text=Sign in")
 
         const accountSummaryTab = await page.locator("#account_summary_tab")
-        await expect(accountSummaryTab).toBeVisible
+        await expect(accountSummaryTab).toBeVisible()
 
         await page.goto("http://zero.webappsecurity.com/logout.html")
         await expect(page).toHaveURL("http://zero.webappsecurity.com/index.html")

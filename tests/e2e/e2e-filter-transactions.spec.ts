@@ -21,6 +21,6 @@ test.describe("Filter Transactions", () => {
 
         await page.selectOption("#aa_accountId", '6')
         const noResults = await page.locator(".well")
-        await expect(noResults).toBeVisible        
+        await expect(noResults).toBeVisible()   
     })    
 })
