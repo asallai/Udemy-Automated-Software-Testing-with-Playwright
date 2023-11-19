@@ -2,7 +2,7 @@ import { test, expect} from "@playwright/test"
 import { LoginPage } from "../../page-objects/LoginPage"
 import { HomePage } from "../../page-objects/HomePage"
 
-test.describe("Login / Logout Flow", () => {
+test.describe.only("Login / Logout Flow", () => {
     let loginPage: LoginPage
     let homePage: HomePage
     
@@ -17,6 +17,7 @@ test.describe("Login / Logout Flow", () => {
         await homePage.clickOnSignIn()
 
         await loginPage.login('username', 'password')
+        await loginPage.wait(3000)
 
         const accountSummaryTab = await page.locator("#account_summary_tab")
         await expect(accountSummaryTab).toBeVisible()
