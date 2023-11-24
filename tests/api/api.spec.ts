@@ -13,4 +13,12 @@ test.describe.parallel("API testing", () => {
         const response = await request.get(`${baseUrl}/users/non-existing-endpoint`)
         expect(response.status()).toBe(404)        
     })
+
+    test.only("Simple API test - Parse response JSON data", async ({ request }) => {
+        const response = await request.get(`${baseUrl}/users/3`)
+        expect(response.status()).toBe(200)
+
+        const responseBody = JSON.parse(await response.text())
+        console.log(responseBody)        
+    })
 })
