@@ -5,8 +5,7 @@ test.describe.parallel("API testing", () => {
 
     test("Simple API Test - Assert Response Status", async ({ request }) => {
         const response = await request.get(`${baseUrl}/users/2`)
-        expect(response.status()).toBe(200)
-        
+        expect(response.status()).toBe(200)        
     })
 
     test("Simple API Test - Assert Invalid Endpoint", async ({ request }) => {
@@ -76,5 +75,22 @@ test.describe.parallel("API testing", () => {
 
         expect(response.status()).toBe(400)  
         expect(responseBody.error).toBe("Missing password")      
+    })
+
+    test("PUT Request - Update User", async ({ request }) => {
+        const response = await request.put(`${baseUrl}/users/2`, {
+            data: {
+                name: "Judy",
+                job: "teacher"
+            }
+        })
+
+        const responseBody = JSON.parse(await response.text())
+        console.log(responseBody)
+
+        expect(response.status()).toBe(200)
+        expect(responseBody.name).toBe("Judy")
+        expect(responseBody.job).toBe("teacher")
+        expect(responseBody.updatedAt).toBeTruthy()        
     })
 })
