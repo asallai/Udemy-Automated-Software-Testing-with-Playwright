@@ -1,3 +1,4 @@
+jenkins.war
 node_modules/.package-lock.json
 node_modules/.bin/playwright
 node_modules/.bin/playwright-core
