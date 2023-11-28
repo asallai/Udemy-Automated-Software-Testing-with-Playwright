@@ -17,15 +17,12 @@ test.describe.parallel("API testing", () => {
         const response = await request.get(`${baseUrl}/users/3`)
         expect(response.status()).toBe(200)
 
-        const responseBody = JSON.parse(await response.text())
-        console.log(responseBody)        
+        const responseBody = JSON.parse(await response.text())        
     })
 
     test("GET Request - Get User Detail", async ({ request }) => {
         const response = await request.get(`${baseUrl}/users/2`)
         const responseBody = JSON.parse(await response.text())
-
-        console.log(responseBody)
 
         expect(response.status()).toBe(200)
         expect(responseBody.data.id).toBe(2)
@@ -43,7 +40,6 @@ test.describe.parallel("API testing", () => {
         })
 
         const responseBody = JSON.parse(await response.text())
-        console.log(responseBody)
 
         expect(response.status()).toBe(201)        
     })
@@ -57,7 +53,6 @@ test.describe.parallel("API testing", () => {
         })
 
         const responseBody = JSON.parse(await response.text())
-        console.log(responseBody)
 
         expect(response.status()).toBe(200)
         expect(responseBody.token).toBeTruthy()
@@ -71,7 +66,6 @@ test.describe.parallel("API testing", () => {
         })
 
         const responseBody = JSON.parse(await response.text())
-        console.log(responseBody)
 
         expect(response.status()).toBe(400)  
         expect(responseBody.error).toBe("Missing password")      
@@ -86,7 +80,6 @@ test.describe.parallel("API testing", () => {
         })
 
         const responseBody = JSON.parse(await response.text())
-        console.log(responseBody)
 
         expect(response.status()).toBe(200)
         expect(responseBody.name).toBe("Judy")
