@@ -18,8 +18,16 @@ test.describe("Tips & Tricks Section", () => {
         await page.goto("https://www.example.com")        
     })
 
-    test.only("Retries", async ({ page }) => {
+    test("Retries", async ({ page }) => {
         await page.goto("https://www.example")  // invalid command        
     })
 
+    const people = ['Mike', 'Judy', 'Peter', 'James', 'Alice']
+    for(const name of people) {
+        test.only(`Running test for ${name}`, async ({ page }) => {
+            await page.goto("http://zero.webappsecurity.com/index.html")
+            await page.fill("#searchTerm", `${name}`)
+            await page.waitForTimeout(1000)        
+        })
+    }
 })
