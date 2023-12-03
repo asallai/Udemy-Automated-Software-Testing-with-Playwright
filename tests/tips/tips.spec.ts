@@ -49,4 +49,7 @@ test.describe("Tips & Tricks Section", () => {
         await page3.goto("https://www.example.com")
         await page1.waitForTimeout(3000)
     })
+
+    // 75. Device Emulation
+    // npx playwright open --device="iPhone 11" wikipedia.org  
 })
