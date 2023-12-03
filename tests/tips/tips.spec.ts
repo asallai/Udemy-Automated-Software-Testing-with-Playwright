@@ -24,10 +24,18 @@ test.describe("Tips & Tricks Section", () => {
 
     const people = ['Mike', 'Judy', 'Peter', 'James', 'Alice']
     for(const name of people) {
-        test.only(`Running test for ${name}`, async ({ page }) => {
+        test(`Running test for ${name}`, async ({ page }) => {
             await page.goto("http://zero.webappsecurity.com/index.html")
             await page.fill("#searchTerm", `${name}`)
             await page.waitForTimeout(1000)        
         })
     }
+
+    test.only("Mouse Movement Simulation", async ({ page }) => {
+        await page.goto("https://www.example.com")
+        await page.mouse.move(0, 0)   
+        await page.mouse.down()   
+        await page.mouse.move(0, 100)   
+        await page.mouse.up()   
+    })
 })
