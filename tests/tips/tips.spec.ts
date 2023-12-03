@@ -51,5 +51,8 @@ test.describe("Tips & Tricks Section", () => {
     })
 
     // 75. Device Emulation
-    // npx playwright open --device="iPhone 11" wikipedia.org  
+    // npx playwright open --device="iPhone 11" wikipedia.org
+
+    // 76. Generate PDF Files
+    // npx playwright pdf https://example.com my-file.pdf
 })
