@@ -55,4 +55,7 @@ test.describe("Tips & Tricks Section", () => {
 
     // 76. Generate PDF Files
     // npx playwright pdf https://example.com my-file.pdf
+
+    // 77. Generate Customized Screenshots
+    // npx playwright screenshot --device="iPhone 11" --color-scheme=dark --wait-for-timeout=3000 twitter.com twitter-iphone-image.png
 })
