@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test"
-import { getRandomNumber } from "../../utils/data-helpers"
+import { getRandomNumber, getRandomString } from "../../utils/data-helpers"
 
 test.describe("Tips & Tricks Section", () => {
 
@@ -63,8 +63,13 @@ test.describe("Tips & Tricks Section", () => {
     // 78. Emulate Browser Language & Timezone
     // npx playwright open --timezone="Europe/Rome" --lang="it-IT" google.com
 
-    test.only("Random Number", async () => {
+    test("Random Number", async () => {
         let randomNumber = await getRandomNumber()
         console.log(randomNumber)        
+    })
+
+    test.only("Random String", async () => {
+        let randomString = await getRandomString()
+        console.log(randomString)        
     })
 })
