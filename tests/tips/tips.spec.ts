@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test"
+import { getRandomNumber } from "../../utils/data-helpers"
 
 test.describe("Tips & Tricks Section", () => {
 
@@ -39,7 +40,7 @@ test.describe("Tips & Tricks Section", () => {
         await page.mouse.up()   
     })
 
-    test.only("Multiple Browser Tabs", async ({ browser }) => {
+    test("Multiple Browser Tabs", async ({ browser }) => {
         const context = await browser.newContext()
         const page1 = await context.newPage()
         const page2 = await context.newPage()
@@ -61,4 +62,9 @@ test.describe("Tips & Tricks Section", () => {
 
     // 78. Emulate Browser Language & Timezone
     // npx playwright open --timezone="Europe/Rome" --lang="it-IT" google.com
+
+    test.only("Random Number", async () => {
+        let randomNumber = await getRandomNumber()
+        console.log(randomNumber)        
+    })
 })
