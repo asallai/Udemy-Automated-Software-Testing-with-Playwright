@@ -58,4 +58,7 @@ test.describe("Tips & Tricks Section", () => {
 
     // 77. Generate Customized Screenshots
     // npx playwright screenshot --device="iPhone 11" --color-scheme=dark --wait-for-timeout=3000 twitter.com twitter-iphone-image.png
+
+    // 78. Emulate Browser Language & Timezone
+    // npx playwright open --timezone="Europe/Rome" --lang="it-IT" google.com
 })
