@@ -68,7 +68,7 @@ test.describe("Tips & Tricks Section", () => {
         console.log(randomNumber)        
     })
 
-    test.only("Random String", async () => {
+    test("Random String", async () => {
         let randomString = await getRandomString()
         console.log(randomString)        
     })

@@ -65,7 +65,7 @@ test.describe('My first test suite', () => {
     })
 })
 
-test.describe.only('Hooks', () => {
+test.describe('Hooks', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('https://example.com/')          
     })
