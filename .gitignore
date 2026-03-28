@@ -4,3 +4,4 @@ node_modules/*
 playwright-report/index.html
 test-results/tests-example-Custom-Helpers-Webkit/test-failed-1.png
 test-results/tests-example-Custom-Helpers-Webkit/video.webm
+package-lock.json
